@@ -13,6 +13,7 @@ import (
 
 //Lazadar
 type Lazadar interface {
+    SetAccessToken(accessToken string)
 	//auth
 	AuthorizationURL(redirectUri string) string
 	//system
@@ -67,6 +68,13 @@ type Lazada struct {
 	system.System
 	order.Order
 	product.Product
+}
+//SetAccessToken 设置token
+func (l *Lazada)SetAccessToken(accessToken string){
+    l.Auth.Config.SetAccessToken(accessToken)
+    l.System.Config.SetAccessToken(accessToken)
+    l.Order.Config.SetAccessToken(accessToken)
+    l.Product.Config.SetAccessToken(accessToken)
 }
 
 //NewApi

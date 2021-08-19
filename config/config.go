@@ -40,7 +40,10 @@ func (c *Config)GetApiUrl(country string)string{
 	}
 	return baseURL[c.Country]
 }
-
+//SetAccessToken
+func (c *Config)SetAccessToken(accessToken string){
+	c.AccessToken=accessToken
+}
 
 //GetCommonParam
 func (c *Config) GetCommonParam() lib.InRow {
