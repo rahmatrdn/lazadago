@@ -23,6 +23,20 @@ import (
 	gspproductentity "github.com/wjpxxx/lazadago/gspproduct/entity"
     "github.com/wjpxxx/lazadago/etickets"
 	eticketsentity "github.com/wjpxxx/lazadago/etickets/entity"
+    "github.com/wjpxxx/lazadago/returnandrefund"
+	returnandrefundentity "github.com/wjpxxx/lazadago/returnandrefund/entity"
+    "github.com/wjpxxx/lazadago/flexicombo"
+	flexicomboentity "github.com/wjpxxx/lazadago/flexicombo/entity"
+    "github.com/wjpxxx/lazadago/sellervoucher"
+	sellervoucherentity "github.com/wjpxxx/lazadago/sellervoucher/entity"
+    "github.com/wjpxxx/lazadago/freeshipping"
+	freeshippingentity "github.com/wjpxxx/lazadago/freeshipping/entity"
+    "github.com/wjpxxx/lazadago/mediacenter"
+	mediacenterentity "github.com/wjpxxx/lazadago/mediacenter/entity"
+    "github.com/wjpxxx/lazadago/productreview"
+	productreviewentity "github.com/wjpxxx/lazadago/productreview/entity"
+    "github.com/wjpxxx/lazadago/firstmilebigbag"
+	firstmilebigbagentity "github.com/wjpxxx/lazadago/firstmilebigbag/entity"
 )
 
 //Lazadar
@@ -116,6 +130,71 @@ type Lazadar interface {
     GlobalEticketMerchantMaQuery (code string,sellerId int,storeId int) eticketsentity.GlobalEticketMerchantMaQueryResult
     GlobalEticketMerchantMaQueryTbMa (code string) eticketsentity.GlobalEticketMerchantMaQueryTbMaResult
     GlobalEticketMerchantMaSend (bizType int,isvMaList []eticketsentity.GlobalEticketMerchantMaSendIsvMaListRequestEntity,outerId string) eticketsentity.GlobalEticketMerchantMaSendResult
+    //Return and Refund API
+    GetReverseOrderDetail (reverseOrderId int) returnandrefundentity.GetReverseOrderDetailResult
+    GetReverseOrderHistoryList (reverseOrderLineId int,pageSize int,pageNumber int) returnandrefundentity.GetReverseOrderHistoryListResult
+    GetReverseOrderReasonList (reverseOrderLineId int) returnandrefundentity.GetReverseOrderReasonListResult
+    GetReverseOrdersForSeller (ofcStatusList []string,reverseOrderId int,tradeOrderId int,pageSize int,reverseStatusList []string,pageNo int,returnToType string,disputeInProgress bool) returnandrefundentity.GetReverseOrdersForSellerResult
+    InitReverseOrderCancel (orderItemIdList []string,orderId int,reasonId string) returnandrefundentity.InitReverseOrderCancelResult
+    ReverseOrderCancelValidate (orderId string,orderItemIdList []string) returnandrefundentity.ReverseOrderCancelValidateResult
+    ReverseOrderReturnUpdate (action string,reverseOrderId int,reverseOrderItemIds []int,reasonId int,comment string,imageInfo []returnandrefundentity.ReverseOrderReturnUpdateImageInfoRequestEntity) returnandrefundentity.ReverseOrderReturnUpdateResult
+    //FlexiCombo
+    ActivateFlexiCombo (id int) flexicomboentity.ActivateFlexiComboResult
+    AddFlexiComboProducts (id int,skuIds []int) flexicomboentity.AddFlexiComboProductsResult
+    CreateFlexiCombo (apply string,sampleSkus []flexicomboentity.CreateFlexiComboSampleSkusRequestEntity,criteriaType string,criteriaValue []string,orderNumbers int,name string,platformChannel string,giftSkus []flexicomboentity.CreateFlexiComboGiftSkusRequestEntity,startTime int,discountType string,endTime int,discountValue []string,stackable string) flexicomboentity.CreateFlexiComboResult
+    DeactivateFlexiCombo (id int) flexicomboentity.DeactivateFlexiComboResult
+    DeleteFlexiComboProducts (id int,skuIds []int) flexicomboentity.DeleteFlexiComboProductsResult
+    GetFlexiComboDetails (id int) flexicomboentity.GetFlexiComboDetailsResult
+    ListFlexiCombo (curPage int,name string,pageSize int,status string) flexicomboentity.ListFlexiComboResult
+    ListFlexiComboProducts (curPage int,pageSize int,id int) flexicomboentity.ListFlexiComboProductsResult
+    UpdateFlexiCombo (apply string,sampleSkus []flexicomboentity.UpdateFlexiComboSampleSkusRequestEntity,criteriaType string,criteriaValue []string,orderNumbers int,name string,platformChannel string,giftSkus []flexicomboentity.UpdateFlexiComboGiftSkusRequestEntity,startTime int,discountType string,id int,endTime int,discountValue []string,stackable string) flexicomboentity.UpdateFlexiComboResult
+    //Seller Voucher
+    SellerVoucherActivate (voucherType string,id int) sellervoucherentity.SellerVoucherActivateResult
+    SellerVoucherAddSelectedProductSKU (voucherType string,id int,skuIds []int) sellervoucherentity.SellerVoucherAddSelectedProductSKUResult
+    SellerVoucherCreate (criteriaOverMoney string,voucherType string,apply string,collectStart int,displayArea string,periodEndTime int,voucherName string,voucherDiscountType string,offeringMoneyValueOff string,periodStartTime int,limit int,issued int,maxDiscountOfferingMoneyValue string,offeringPercentageDiscountOff int) sellervoucherentity.SellerVoucherCreateResult
+    SellerVoucherDeactivate (voucherType string,id int) sellervoucherentity.SellerVoucherDeactivateResult
+    SellerVoucherDeleteSelectedProductSKU (voucherType string,id int,skuIds []int) sellervoucherentity.SellerVoucherDeleteSelectedProductSKUResult
+    SellerVoucherDetailQuery (voucherType string,id int) sellervoucherentity.SellerVoucherDetailQueryResult
+    SellerVoucherList (curPage int,voucherType string,name string,pageSize int,status string) sellervoucherentity.SellerVoucherListResult
+    SellerVoucherSelectedProductList (voucherType string,id int) sellervoucherentity.SellerVoucherSelectedProductListResult
+    SellerVoucherUpdate (maxDiscountOfferingMoneyValue string,offeringPercentageDiscountOff int,id string,criteriaOverMoney string,voucherType string,apply string,collectStart int,displayArea string,periodEndTime int,voucherName string,voucherDiscountType string,offeringMoneyValueOff string,periodStartTime int,limit int,issued int) sellervoucherentity.SellerVoucherUpdateResult
+    //Free Shipping
+    FreeShippingActivate (id int) freeshippingentity.FreeShippingActivateResult
+    FreeShippingAddSelectedProductSKU (id int,skuIds []int) freeshippingentity.FreeShippingAddSelectedProductSKUResult
+    FreeShippingCreate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,deliveryOption string,tiers []freeshippingentity.FreeShippingCreateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingCreateResult
+    FreeShippingDeactivate (id int) freeshippingentity.FreeShippingDeactivateResult
+    FreeShippingDeleteSelectedProductSKU (id int,skuIds []int) freeshippingentity.FreeShippingDeleteSelectedProductSKUResult
+    FreeShippingDeliveryOptionsQuery () freeshippingentity.FreeShippingDeliveryOptionsQueryResult
+    FreeShippingGet (id int) freeshippingentity.FreeShippingGetResult
+    FreeShippingList (curPage int,name string,pageSize int,status string) freeshippingentity.FreeShippingListResult
+    FreeShippingRegionsQuery () freeshippingentity.FreeShippingRegionsQueryResult
+    FreeShippingSelectedProductList (curPage int,pageSize int,id int) freeshippingentity.FreeShippingSelectedProductListResult
+    FreeShippingUpdate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,id int,deliveryOption string,tiers []freeshippingentity.FreeShippingUpdateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingUpdateResult
+    //Media Center API
+    CompleteCreateVideo (uploadId string,parts string,title string,coverUrl string) mediacenterentity.CompleteCreateVideoResult
+    GetVideo (videoId int) mediacenterentity.GetVideoResult
+    GetVideoQuota () mediacenterentity.GetVideoQuotaResult
+    InitCreateVideo (fileName string,fileBytes int) mediacenterentity.InitCreateVideoResult
+    RemoveVideo (videoId int) mediacenterentity.RemoveVideoResult
+    UploadVideoBlock (uploadId string,blockNo string,blockCount string,file []byte) mediacenterentity.UploadVideoBlockResult
+    //Product Review API
+    GetProductReviewList (itemId int,orderId int,startTime int,endTime int,contentFilter string,statusFilter string,pageSize int,current int) productreviewentity.GetProductReviewListResult
+    SubmitSellerReply (id int,content string) productreviewentity.SubmitSellerReplyResult
+    //FirstMile Bigbag（only for CN）
+    GetLazadaBigbagPDFLable (userInfo firstmilebigbagentity.GetLazadaBigbagPDFLableUserInfoRequestEntity,client string,orderCode string,remark string,locale string,trackingNumber string) firstmilebigbagentity.GetLazadaBigbagPDFLableResult
+    GetNewBagNumber () firstmilebigbagentity.GetNewBagNumberResult
+    LazadaBigbagCancel (userInfo firstmilebigbagentity.LazadaBigbagCancelUserInfoRequestEntity,client string,orderCode string,remark string,locale string,trackingNumber string) firstmilebigbagentity.LazadaBigbagCancelResult
+    LazadaBigbagCollectionPoints (pageSize string,currentPage string) firstmilebigbagentity.LazadaBigbagCollectionPointsResult
+    LazadaBigbagCommit (client string,collectionInfo firstmilebigbagentity.LazadaBigbagCommitCollectionInfoRequestEntity,remark string,pickupInfo firstmilebigbagentity.LazadaBigbagCommitPickupInfoRequestEntity,locale string,weightUnit string,tp string,sellerTrackingNumber string,returnInfo firstmilebigbagentity.LazadaBigbagCommitReturnInfoRequestEntity,userInfo firstmilebigbagentity.LazadaBigbagCommitUserInfoRequestEntity,orderCodeList []string,weight string) firstmilebigbagentity.LazadaBigbagCommitResult
+    LazadaBigbagUpdate (userInfo firstmilebigbagentity.LazadaBigbagUpdateUserInfoRequestEntity,weight int,locale string,orderCodeList []string,client string,orderCode string,trackingNumber string,weightUnit string) firstmilebigbagentity.LazadaBigbagUpdateResult
+    LazadaSellerAccountBind (userInfo firstmilebigbagentity.LazadaSellerAccountBindUserInfoRequestEntity,client string,remark string,sellerList []firstmilebigbagentity.LazadaSellerAccountBindSellerListRequestEntity,locale string) firstmilebigbagentity.LazadaSellerAccountBindResult
+    QueryAddressInformaiton (country string,zipCode string,userInfo firstmilebigbagentity.QueryAddressInformaitonUserInfoRequestEntity,city string,remark string,locale string,province string,street string,district string,detailAddress string,client string) firstmilebigbagentity.QueryAddressInformaitonResult
+    QueryLazadaBigbagInfo (userInfo firstmilebigbagentity.QueryLazadaBigbagInfoUserInfoRequestEntity,client string,orderCode string,remark string,locale string,trackingNumber string) firstmilebigbagentity.QueryLazadaBigbagInfoResult
+    QueryPackageStatus (trackingNumbers []string) firstmilebigbagentity.QueryPackageStatusResult
+    UploadLazadaBagNumber (trackingNumbers []string,erpBagNumber string,parcelsTotal int,lzdBagNumber string) firstmilebigbagentity.UploadLazadaBagNumberResult
+    UploadSellerBagNumber (trackingNumbers []string,erpBagNumber string,parcelsTotal int) firstmilebigbagentity.UploadSellerBagNumberResult
+    GetChannelcodeByFirstMileNo (firstMileNos []string) firstmilebigbagentity.GetChannelcodeByFirstMileNoResult
+
 
 }
 
@@ -132,6 +211,13 @@ type Lazada struct {
     fbl.Fbl
     gspproduct.GspProduct
     etickets.ETickets
+    returnandrefund.ReturnAndRefund
+    flexicombo.FlexiCombo
+    sellervoucher.SellerVoucher
+    freeshipping.FreeShipping
+    mediacenter.MediaCenter
+    productreview.ProductReview
+    firstmilebigbag.FirstMileBigbag
 }
 //SetAccessToken 设置token
 func (l *Lazada)SetAccessToken(accessToken string){
@@ -146,6 +232,13 @@ func (l *Lazada)SetAccessToken(accessToken string){
     l.Fbl.Config.SetAccessToken(accessToken)
     l.GspProduct.Config.SetAccessToken(accessToken)
     l.ETickets.Config.SetAccessToken(accessToken)
+    l.ReturnAndRefund.Config.SetAccessToken(accessToken)
+    l.FlexiCombo.Config.SetAccessToken(accessToken)
+    l.SellerVoucher.Config.SetAccessToken(accessToken)
+    l.FreeShipping.Config.SetAccessToken(accessToken)
+    l.MediaCenter.Config.SetAccessToken(accessToken)
+    l.ProductReview.Config.SetAccessToken(accessToken)
+    l.FirstMileBigbag.Config.SetAccessToken(accessToken)
 }
 
 //NewApi
@@ -162,5 +255,12 @@ func NewApi(cfg *lazadaConfig.Config)Lazadar{
         fbl.Fbl{Config: cfg},
         gspproduct.GspProduct{Config: cfg},
         etickets.ETickets{Config: cfg},
+        returnandrefund.ReturnAndRefund{Config: cfg},
+        flexicombo.FlexiCombo{Config: cfg},
+        sellervoucher.SellerVoucher{Config: cfg},
+        freeshipping.FreeShipping{Config: cfg},
+        mediacenter.MediaCenter{Config: cfg},
+        productreview.ProductReview{Config: cfg},
+        firstmilebigbag.FirstMileBigbag{Config: cfg},
 	}
 }
