@@ -8,7 +8,7 @@ type QueryPackageStatusDataResponseEntity struct{
     RtsDate	string	`json:"rts_date"`
     OrderCreateDate	string	`json:"order_create_date"`
     IsPickedUp	bool	`json:"is_picked_up"`
-    OrderNumber	string	`json:"order_number"`
+    OrderNumber	int64	`json:"order_number"`
     Weight	string	`json:"weight"`
     IsReceived	bool	`json:"is_received"`
     GlobalCollection	string	`json:"global_collection"`

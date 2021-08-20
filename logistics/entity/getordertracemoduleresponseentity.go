@@ -6,7 +6,7 @@ import (
 
 type GetOrderTraceModuleResponseEntity struct{
     WarehouseDetailInfo	string	`json:"warehouse_detail_info"`
-    OfcOrderId	string	`json:"ofc_order_id"`
+    OfcOrderId	int64	`json:"ofc_order_id"`
     PackageDetailInfoList	[]GetOrderTracePackageDetailInfoListResponseEntity	`json:"package_detail_info_list"`
 }
 func (g GetOrderTraceModuleResponseEntity) String() string {

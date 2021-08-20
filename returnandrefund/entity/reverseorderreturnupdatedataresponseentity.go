@@ -6,7 +6,7 @@ import (
 
 type ReverseOrderReturnUpdateDataResponseEntity struct{
     ReverseOrderLine	[]ReverseOrderReturnUpdateReverseOrderLineResponseEntity	`json:"reverse_order_line"`
-    ReverseOrderId	int	`json:"reverse_order_id"`
+    ReverseOrderId	int64	`json:"reverse_order_id"`
     ReasonInfo	[]ReverseOrderReturnUpdateReasonInfoResponseEntity	`json:"reason_info"`
     TotalRefund	string	`json:"total_refund"`
 }

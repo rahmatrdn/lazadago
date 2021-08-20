@@ -13,7 +13,7 @@ type ReturnAndRefund struct{
 //GetReverseOrderDetail
 //@Title Get the detailed information for a specific reverse order
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/order/reverse/return/detail/list
-func (s *ReturnAndRefund) GetReverseOrderDetail (reverseOrderId int) returnandrefundentity.GetReverseOrderDetailResult {
+func (s *ReturnAndRefund) GetReverseOrderDetail (reverseOrderId int64) returnandrefundentity.GetReverseOrderDetailResult {
     method := "/order/reverse/return/detail/list"
     params := lib.InRow{
       "reverse_order_id":reverseOrderId,
@@ -28,7 +28,7 @@ func (s *ReturnAndRefund) GetReverseOrderDetail (reverseOrderId int) returnandre
 //GetReverseOrderHistoryList
 //@Title Get the communication history of the reverse order
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/order/reverse/return/history/list
-func (s *ReturnAndRefund) GetReverseOrderHistoryList (reverseOrderLineId int,pageSize int,pageNumber int) returnandrefundentity.GetReverseOrderHistoryListResult {
+func (s *ReturnAndRefund) GetReverseOrderHistoryList (reverseOrderLineId int64,pageSize int,pageNumber int) returnandrefundentity.GetReverseOrderHistoryListResult {
     method := "/order/reverse/return/history/list"
     params := lib.InRow{
       "reverse_order_line_id":reverseOrderLineId,
@@ -49,7 +49,7 @@ func (s *ReturnAndRefund) GetReverseOrderHistoryList (reverseOrderLineId int,pag
 //GetReverseOrderReasonList
 //@Title Get the list of reject reason. Need to be used in all refuse refund actions
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/order/reverse/reason/list
-func (s *ReturnAndRefund) GetReverseOrderReasonList (reverseOrderLineId int) returnandrefundentity.GetReverseOrderReasonListResult {
+func (s *ReturnAndRefund) GetReverseOrderReasonList (reverseOrderLineId int64) returnandrefundentity.GetReverseOrderReasonListResult {
     method := "/order/reverse/reason/list"
     params := lib.InRow{
       "reverse_order_line_id":reverseOrderLineId,
@@ -64,7 +64,7 @@ func (s *ReturnAndRefund) GetReverseOrderReasonList (reverseOrderLineId int) ret
 //GetReverseOrdersForSeller
 //@Title Use this API to get the list of items for a range of reverse orders.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/reverse/getreverseordersforseller
-func (s *ReturnAndRefund) GetReverseOrdersForSeller (ofcStatusList []string,reverseOrderId int,tradeOrderId int,pageSize int,reverseStatusList []string,pageNo int,returnToType string,disputeInProgress bool) returnandrefundentity.GetReverseOrdersForSellerResult {
+func (s *ReturnAndRefund) GetReverseOrdersForSeller (ofcStatusList []string,reverseOrderId int64,tradeOrderId int64,pageSize int,reverseStatusList []string,pageNo int,returnToType string,disputeInProgress bool) returnandrefundentity.GetReverseOrdersForSellerResult {
     method := "/reverse/getreverseordersforseller"
     params := lib.InRow{
       "page_size":pageSize,
@@ -89,7 +89,7 @@ func (s *ReturnAndRefund) GetReverseOrdersForSeller (ofcStatusList []string,reve
 //InitReverseOrderCancel
 //@Title Seller initiates a cancelation
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/order/reverse/cancel/create
-func (s *ReturnAndRefund) InitReverseOrderCancel (orderItemIdList []string,orderId int,reasonId string) returnandrefundentity.InitReverseOrderCancelResult {
+func (s *ReturnAndRefund) InitReverseOrderCancel (orderItemIdList []string,orderId int64,reasonId string) returnandrefundentity.InitReverseOrderCancelResult {
     method := "/order/reverse/cancel/create"
     params := lib.InRow{
       "order_item_id_list":orderItemIdList,
@@ -122,7 +122,7 @@ func (s *ReturnAndRefund) ReverseOrderCancelValidate (orderId string,orderItemId
 //ReverseOrderReturnUpdate
 //@Title Seller can use this API to action on return and refund related.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/order/reverse/return/update
-func (s *ReturnAndRefund) ReverseOrderReturnUpdate (action string,reverseOrderId int,reverseOrderItemIds []int,reasonId int,comment string,imageInfo []returnandrefundentity.ReverseOrderReturnUpdateImageInfoRequestEntity) returnandrefundentity.ReverseOrderReturnUpdateResult {
+func (s *ReturnAndRefund) ReverseOrderReturnUpdate (action string,reverseOrderId int64,reverseOrderItemIds []int64,reasonId int64,comment string,imageInfo []returnandrefundentity.ReverseOrderReturnUpdateImageInfoRequestEntity) returnandrefundentity.ReverseOrderReturnUpdateResult {
     method := "/order/reverse/return/update"
     params := lib.InRow{
       "action":action,

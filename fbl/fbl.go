@@ -12,7 +12,7 @@ type Fbl struct{
 //GetPlatformProducts
 //@Title Search products list
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=17&path=/fbl/platform_products/get
-func (s *Fbl) GetPlatformProducts (perPage int,sellerId int,marketplace string,sellerSku string,platformSkuName string,readyForInbound bool,platformSku string,page int) fblentity.GetPlatformProductsResult {
+func (s *Fbl) GetPlatformProducts (perPage int,sellerId int64,marketplace string,sellerSku string,platformSkuName string,readyForInbound bool,platformSku string,page int) fblentity.GetPlatformProductsResult {
     method := "/fbl/platform_products/get"
     params := lib.InRow{
       "seller_id":sellerId,

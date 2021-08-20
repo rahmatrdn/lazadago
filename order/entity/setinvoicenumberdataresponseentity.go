@@ -5,7 +5,7 @@ import (
 )
 
 type SetInvoiceNumberDataResponseEntity struct{
-    OrderItemId	int	`json:"order_item_id"`
+    OrderItemId	int64	`json:"order_item_id"`
     InvoiceNumber	string	`json:"invoice_number"`
 }
 func (g SetInvoiceNumberDataResponseEntity) String() string {

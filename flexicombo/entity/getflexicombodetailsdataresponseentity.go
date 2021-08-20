@@ -11,7 +11,7 @@ type GetFlexiComboDetailsDataResponseEntity struct{
     CriteriaType	string	`json:"criteria_type"`
     Type	string	`json:"type"`
     CriteriaValue	[]string	`json:"criteria_value"`
-    OrderNumbers	int	`json:"order_numbers"`
+    OrderNumbers	int64	`json:"order_numbers"`
     PlatformChannel	string	`json:"platform_channel"`
     Name	string	`json:"name"`
     GiftSkus	[]GetFlexiComboDetailsGiftSkusResponseEntity	`json:"gift_skus"`

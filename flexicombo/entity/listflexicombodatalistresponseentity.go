@@ -5,7 +5,7 @@ import (
 )
 
 type ListFlexiComboDataListResponseEntity struct{
-    OrderNumbers	int	`json:"order_numbers"`
+    OrderNumbers	int64	`json:"order_numbers"`
     PlatformChannel	string	`json:"platform_channel"`
     Name	string	`json:"name"`
     GiftSkus	[]ListFlexiComboGiftSkusResponseEntity	`json:"gift_skus"`

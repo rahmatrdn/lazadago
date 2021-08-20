@@ -116,7 +116,7 @@ func (s *ETickets) GlobalEticketMerchantMaFailsend (bizType int,subCode string,o
 //GlobalEticketMerchantMaQuery
 //@Title the callback interface that query lazada platform ma
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=21&path=/eticket/ma/query
-func (s *ETickets) GlobalEticketMerchantMaQuery (code string,sellerId int,storeId int) eticketsentity.GlobalEticketMerchantMaQueryResult {
+func (s *ETickets) GlobalEticketMerchantMaQuery (code string,sellerId int64,storeId int64) eticketsentity.GlobalEticketMerchantMaQueryResult {
     method := "/eticket/ma/query"
     params := lib.InRow{
       "code":code,

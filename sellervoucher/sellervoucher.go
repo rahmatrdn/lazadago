@@ -13,7 +13,7 @@ type SellerVoucher struct{
 //SellerVoucherActivate
 //@Title activate seller voucher promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=30&path=/promotion/voucher/activate
-func (s *SellerVoucher) SellerVoucherActivate (voucherType string,id int) sellervoucherentity.SellerVoucherActivateResult {
+func (s *SellerVoucher) SellerVoucherActivate (voucherType string,id int64) sellervoucherentity.SellerVoucherActivateResult {
     method := "/promotion/voucher/activate"
     params := lib.InRow{
       "voucher_type":voucherType,
@@ -29,7 +29,7 @@ func (s *SellerVoucher) SellerVoucherActivate (voucherType string,id int) seller
 //SellerVoucherAddSelectedProductSKU
 //@Title add seller voucher promotion product sku
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=30&path=/promotion/voucher/product/sku/add
-func (s *SellerVoucher) SellerVoucherAddSelectedProductSKU (voucherType string,id int,skuIds []int) sellervoucherentity.SellerVoucherAddSelectedProductSKUResult {
+func (s *SellerVoucher) SellerVoucherAddSelectedProductSKU (voucherType string,id int64,skuIds []int64) sellervoucherentity.SellerVoucherAddSelectedProductSKUResult {
     method := "/promotion/voucher/product/sku/add"
     params := lib.InRow{
       "voucher_type":voucherType,
@@ -82,7 +82,7 @@ func (s *SellerVoucher) SellerVoucherCreate (criteriaOverMoney string,voucherTyp
 //SellerVoucherDeactivate
 //@Title deactivate seller voucher promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=30&path=/promotion/voucher/deactivate
-func (s *SellerVoucher) SellerVoucherDeactivate (voucherType string,id int) sellervoucherentity.SellerVoucherDeactivateResult {
+func (s *SellerVoucher) SellerVoucherDeactivate (voucherType string,id int64) sellervoucherentity.SellerVoucherDeactivateResult {
     method := "/promotion/voucher/deactivate"
     params := lib.InRow{
       "voucher_type":voucherType,
@@ -98,7 +98,7 @@ func (s *SellerVoucher) SellerVoucherDeactivate (voucherType string,id int) sell
 //SellerVoucherDeleteSelectedProductSKU
 //@Title delete seller voucher promotion product sku
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=30&path=/promotion/voucher/product/sku/remove
-func (s *SellerVoucher) SellerVoucherDeleteSelectedProductSKU (voucherType string,id int,skuIds []int) sellervoucherentity.SellerVoucherDeleteSelectedProductSKUResult {
+func (s *SellerVoucher) SellerVoucherDeleteSelectedProductSKU (voucherType string,id int64,skuIds []int64) sellervoucherentity.SellerVoucherDeleteSelectedProductSKUResult {
     method := "/promotion/voucher/product/sku/remove"
     params := lib.InRow{
       "voucher_type":voucherType,
@@ -115,7 +115,7 @@ func (s *SellerVoucher) SellerVoucherDeleteSelectedProductSKU (voucherType strin
 //SellerVoucherDetailQuery
 //@Title get a seller voucher promotion detail
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=30&path=/promotion/voucher/get
-func (s *SellerVoucher) SellerVoucherDetailQuery (voucherType string,id int) sellervoucherentity.SellerVoucherDetailQueryResult {
+func (s *SellerVoucher) SellerVoucherDetailQuery (voucherType string,id int64) sellervoucherentity.SellerVoucherDetailQueryResult {
     method := "/promotion/voucher/get"
     params := lib.InRow{
       "voucher_type":voucherType,
@@ -158,7 +158,7 @@ func (s *SellerVoucher) SellerVoucherList (curPage int,voucherType string,name s
 //SellerVoucherSelectedProductList
 //@Title query seller voucher selected products list
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=30&path=/promotion/voucher/products/get
-func (s *SellerVoucher) SellerVoucherSelectedProductList (voucherType string,id int) sellervoucherentity.SellerVoucherSelectedProductListResult {
+func (s *SellerVoucher) SellerVoucherSelectedProductList (voucherType string,id int64) sellervoucherentity.SellerVoucherSelectedProductListResult {
     method := "/promotion/voucher/products/get"
     params := lib.InRow{
       "voucher_type":voucherType,

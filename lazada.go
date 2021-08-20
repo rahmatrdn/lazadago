@@ -48,18 +48,19 @@ type Lazadar interface {
 	GenerateAccessToken (code string,uuid string) systementity.GenerateAccessTokenResult
 	RefreshAccessToken (refreshToken string) systementity.RefreshAccessTokenResult
 	//order
+    GetOrdersByUpdateTime (start,end int,offset int,limit int, status string) orderentity.GetOrdersResult
 	GetAwbDocumentHtml (orderItemIds string) orderentity.GetAwbDocumentHtmlResult
     GetAwbDocumentPDF (orderItemIds string) orderentity.GetAwbDocumentPDFResult     
     GetDocument (docType string,orderItemIds string) orderentity.GetDocumentResult     
     GetFailureReasons () orderentity.GetFailureReasonsResult     
-    GetMultipleOrderItems (orderIds []int) orderentity.GetMultipleOrderItemsResult     
+    GetMultipleOrderItems (orderIds []int64) orderentity.GetMultipleOrderItemsResult     
     GetOVOOrders (tradeOrderIds string) orderentity.GetOVOOrdersResult     
-    GetOrder (orderId int) orderentity.GetOrderResult     
-    GetOrderItems (orderId int) orderentity.GetOrderItemsResult     
+    GetOrder (orderId int64) orderentity.GetOrderResult     
+    GetOrderItems (orderId int64) orderentity.GetOrderItemsResult     
     GetOrders (updateBefore string,sortDirection string,offset int,limit int,updateAfter string,sortBy string,createdBefore string,createdAfter string,status string) orderentity.GetOrdersResult     
-    SetInvoiceNumber (orderItemId int,invoiceNumber string) orderentity.SetInvoiceNumberResult     
+    SetInvoiceNumber (orderItemId int64,invoiceNumber string) orderentity.SetInvoiceNumberResult     
     SetRepack (packageId string) orderentity.SetRepackResult     
-    SetStatusToCanceled (reasonDetail string,reasonId int,orderItemId int) orderentity.SetStatusToCanceledResult     
+    SetStatusToCanceled (reasonDetail string,reasonId int64,orderItemId int64) orderentity.SetStatusToCanceledResult     
     SetStatusToPackedByMarketplace (shippingProvider string,deliveryType string,orderItemIds string) orderentity.SetStatusToPackedByMarketplaceResult     
     SetStatusToReadyToShip (deliveryType string,orderItemIds string,shipmentProvider string,trackingNumber string) orderentity.SetStatusToReadyToShipResult     
     SetStatusToSOFDelivered (orderItemIds string) orderentity.SetStatusToSOFDeliveredResult     
@@ -71,7 +72,7 @@ type Lazadar interface {
     GetCategoryAttributes (primaryCategoryId string,languageCode string) productentity.GetCategoryAttributesResult
     GetCategorySuggestion (productName string) productentity.GetCategorySuggestionResult
     GetCategoryTree (languageCode string) productentity.GetCategoryTreeResult
-    GetProductItem (itemId int,sellerSku string) productentity.GetProductItemResult
+    GetProductItem (itemId int64,sellerSku string) productentity.GetProductItemResult
     GetProducts (filter string,updateBefore string,createBefore string,offset string,createAfter string,updateAfter string,limit string,options string,skuSellerList string) productentity.GetProductsResult
     GetQcStatus (offset int,limit int,sellerSkus []string) productentity.GetQcStatusResult
     GetResponse (batchId string) productentity.GetResponseResult
@@ -85,8 +86,8 @@ type Lazadar interface {
     UpdatePriceQuantity (payload string) productentity.UpdatePriceQuantityResult
     UpdateProduct (payload string) productentity.UpdateProductResult
     UploadImage (image []byte) productentity.UploadImageResult
-    RetailFulfilmentCreate (platformName string,source string,sellerId int,platformSkuCode string,itemId int,skuId int,platformSkuName string,barcodeList []string,categoryId int,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentCreateFeaturesRequestEntity) productentity.RetailFulfilmentCreateResult
-    RetailFulfilmentUpdate (scItemId string,fulfillmentSkuName string,barcodeList []string,categoryId int,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentUpdateFeaturesRequestEntity,source string) productentity.RetailFulfilmentUpdateResult
+    RetailFulfilmentCreate (platformName string,source string,sellerId int64,platformSkuCode string,itemId int64,skuId int64,platformSkuName string,barcodeList []string,categoryId int64,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentCreateFeaturesRequestEntity) productentity.RetailFulfilmentCreateResult
+    RetailFulfilmentUpdate (scItemId string,fulfillmentSkuName string,barcodeList []string,categoryId int64,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentUpdateFeaturesRequestEntity,source string) productentity.RetailFulfilmentUpdateResult
 	//Finance
     GetPayoutStatus (createdAfter string) financeentity.GetPayoutStatusResult
     GetTransactionDetails (transType string,startTime string,endTime string,limit string,offset string) financeentity.GetTransactionDetailsResult
@@ -105,7 +106,7 @@ type Lazadar interface {
     DataMoatComputeRisk (time string,appName string,userId string,userIp string,ati string) datamoatentity.DataMoatComputeRiskResult
     DataMoatLogin (time string,appName string,userId string,tid string,userIp string,ati string,loginResult string,loginMessage string) datamoatentity.DataMoatLoginResult
     //FBL
-    GetPlatformProducts (perPage int,sellerId int,marketplace string,sellerSku string,platformSkuName string,readyForInbound bool,platformSku string,page int) fblentity.GetPlatformProductsResult
+    GetPlatformProducts (perPage int,sellerId int64,marketplace string,sellerSku string,platformSkuName string,readyForInbound bool,platformSku string,page int) fblentity.GetPlatformProductsResult
     GetFulfillmentProductDetail (perPage int,shelfLifeFlag bool,marketplace string,fulfillmentSku string,serialNumberFlag bool,page int,fulfillmentSkuName string,barcode string) fblentity.GetFulfillmentProductDetailResult
     GetInboundOrderDetail (inboundOrderNo string,marketplace string) fblentity.GetInboundOrderDetailResult
     GetInboundOrderList (inboundOrderNo string,creationTimeFrom string,creationTimeTo string,inboundWarehouse string,sellerSku string,fulfillmentSku string,marketplace string,page string,perPage string) fblentity.GetInboundOrderListResult
@@ -127,59 +128,59 @@ type Lazadar interface {
     GlobalEticketMerchantMaAvailable (bizType int,code string,serialNum string,posId string,outerId string,consumeNum int,consumeStoreId string) eticketsentity.GlobalEticketMerchantMaAvailableResult
     GlobalEticketMerchantMaConsume (bizType int,serialNum string,posId string,outerId string,consumeNum int,code string,consumeStoreId string) eticketsentity.GlobalEticketMerchantMaConsumeResult
     GlobalEticketMerchantMaFailsend (bizType int,subCode string,outerId string,subMsg string) eticketsentity.GlobalEticketMerchantMaFailsendResult
-    GlobalEticketMerchantMaQuery (code string,sellerId int,storeId int) eticketsentity.GlobalEticketMerchantMaQueryResult
+    GlobalEticketMerchantMaQuery (code string,sellerId int64,storeId int64) eticketsentity.GlobalEticketMerchantMaQueryResult
     GlobalEticketMerchantMaQueryTbMa (code string) eticketsentity.GlobalEticketMerchantMaQueryTbMaResult
     GlobalEticketMerchantMaSend (bizType int,isvMaList []eticketsentity.GlobalEticketMerchantMaSendIsvMaListRequestEntity,outerId string) eticketsentity.GlobalEticketMerchantMaSendResult
     //Return and Refund API
-    GetReverseOrderDetail (reverseOrderId int) returnandrefundentity.GetReverseOrderDetailResult
-    GetReverseOrderHistoryList (reverseOrderLineId int,pageSize int,pageNumber int) returnandrefundentity.GetReverseOrderHistoryListResult
-    GetReverseOrderReasonList (reverseOrderLineId int) returnandrefundentity.GetReverseOrderReasonListResult
-    GetReverseOrdersForSeller (ofcStatusList []string,reverseOrderId int,tradeOrderId int,pageSize int,reverseStatusList []string,pageNo int,returnToType string,disputeInProgress bool) returnandrefundentity.GetReverseOrdersForSellerResult
-    InitReverseOrderCancel (orderItemIdList []string,orderId int,reasonId string) returnandrefundentity.InitReverseOrderCancelResult
+    GetReverseOrderDetail (reverseOrderId int64) returnandrefundentity.GetReverseOrderDetailResult
+    GetReverseOrderHistoryList (reverseOrderLineId int64,pageSize int,pageNumber int) returnandrefundentity.GetReverseOrderHistoryListResult
+    GetReverseOrderReasonList (reverseOrderLineId int64) returnandrefundentity.GetReverseOrderReasonListResult
+    GetReverseOrdersForSeller (ofcStatusList []string,reverseOrderId int64,tradeOrderId int64,pageSize int,reverseStatusList []string,pageNo int,returnToType string,disputeInProgress bool) returnandrefundentity.GetReverseOrdersForSellerResult
+    InitReverseOrderCancel (orderItemIdList []string,orderId int64,reasonId string) returnandrefundentity.InitReverseOrderCancelResult
     ReverseOrderCancelValidate (orderId string,orderItemIdList []string) returnandrefundentity.ReverseOrderCancelValidateResult
-    ReverseOrderReturnUpdate (action string,reverseOrderId int,reverseOrderItemIds []int,reasonId int,comment string,imageInfo []returnandrefundentity.ReverseOrderReturnUpdateImageInfoRequestEntity) returnandrefundentity.ReverseOrderReturnUpdateResult
+    ReverseOrderReturnUpdate (action string,reverseOrderId int64,reverseOrderItemIds []int64,reasonId int64,comment string,imageInfo []returnandrefundentity.ReverseOrderReturnUpdateImageInfoRequestEntity) returnandrefundentity.ReverseOrderReturnUpdateResult
     //FlexiCombo
-    ActivateFlexiCombo (id int) flexicomboentity.ActivateFlexiComboResult
-    AddFlexiComboProducts (id int,skuIds []int) flexicomboentity.AddFlexiComboProductsResult
+    ActivateFlexiCombo (id int64) flexicomboentity.ActivateFlexiComboResult
+    AddFlexiComboProducts (id int64,skuIds []int64) flexicomboentity.AddFlexiComboProductsResult
     CreateFlexiCombo (apply string,sampleSkus []flexicomboentity.CreateFlexiComboSampleSkusRequestEntity,criteriaType string,criteriaValue []string,orderNumbers int,name string,platformChannel string,giftSkus []flexicomboentity.CreateFlexiComboGiftSkusRequestEntity,startTime int,discountType string,endTime int,discountValue []string,stackable string) flexicomboentity.CreateFlexiComboResult
-    DeactivateFlexiCombo (id int) flexicomboentity.DeactivateFlexiComboResult
-    DeleteFlexiComboProducts (id int,skuIds []int) flexicomboentity.DeleteFlexiComboProductsResult
-    GetFlexiComboDetails (id int) flexicomboentity.GetFlexiComboDetailsResult
+    DeactivateFlexiCombo (id int64) flexicomboentity.DeactivateFlexiComboResult
+    DeleteFlexiComboProducts (id int64,skuIds []int64) flexicomboentity.DeleteFlexiComboProductsResult
+    GetFlexiComboDetails (id int64) flexicomboentity.GetFlexiComboDetailsResult
     ListFlexiCombo (curPage int,name string,pageSize int,status string) flexicomboentity.ListFlexiComboResult
-    ListFlexiComboProducts (curPage int,pageSize int,id int) flexicomboentity.ListFlexiComboProductsResult
-    UpdateFlexiCombo (apply string,sampleSkus []flexicomboentity.UpdateFlexiComboSampleSkusRequestEntity,criteriaType string,criteriaValue []string,orderNumbers int,name string,platformChannel string,giftSkus []flexicomboentity.UpdateFlexiComboGiftSkusRequestEntity,startTime int,discountType string,id int,endTime int,discountValue []string,stackable string) flexicomboentity.UpdateFlexiComboResult
+    ListFlexiComboProducts (curPage int,pageSize int,id int64) flexicomboentity.ListFlexiComboProductsResult
+    UpdateFlexiCombo (apply string,sampleSkus []flexicomboentity.UpdateFlexiComboSampleSkusRequestEntity,criteriaType string,criteriaValue []string,orderNumbers int,name string,platformChannel string,giftSkus []flexicomboentity.UpdateFlexiComboGiftSkusRequestEntity,startTime int,discountType string,id int64,endTime int,discountValue []string,stackable string) flexicomboentity.UpdateFlexiComboResult
     //Seller Voucher
-    SellerVoucherActivate (voucherType string,id int) sellervoucherentity.SellerVoucherActivateResult
-    SellerVoucherAddSelectedProductSKU (voucherType string,id int,skuIds []int) sellervoucherentity.SellerVoucherAddSelectedProductSKUResult
+    SellerVoucherActivate (voucherType string,id int64) sellervoucherentity.SellerVoucherActivateResult
+    SellerVoucherAddSelectedProductSKU (voucherType string,id int64,skuIds []int64) sellervoucherentity.SellerVoucherAddSelectedProductSKUResult
     SellerVoucherCreate (criteriaOverMoney string,voucherType string,apply string,collectStart int,displayArea string,periodEndTime int,voucherName string,voucherDiscountType string,offeringMoneyValueOff string,periodStartTime int,limit int,issued int,maxDiscountOfferingMoneyValue string,offeringPercentageDiscountOff int) sellervoucherentity.SellerVoucherCreateResult
-    SellerVoucherDeactivate (voucherType string,id int) sellervoucherentity.SellerVoucherDeactivateResult
-    SellerVoucherDeleteSelectedProductSKU (voucherType string,id int,skuIds []int) sellervoucherentity.SellerVoucherDeleteSelectedProductSKUResult
-    SellerVoucherDetailQuery (voucherType string,id int) sellervoucherentity.SellerVoucherDetailQueryResult
+    SellerVoucherDeactivate (voucherType string,id int64) sellervoucherentity.SellerVoucherDeactivateResult
+    SellerVoucherDeleteSelectedProductSKU (voucherType string,id int64,skuIds []int64) sellervoucherentity.SellerVoucherDeleteSelectedProductSKUResult
+    SellerVoucherDetailQuery (voucherType string,id int64) sellervoucherentity.SellerVoucherDetailQueryResult
     SellerVoucherList (curPage int,voucherType string,name string,pageSize int,status string) sellervoucherentity.SellerVoucherListResult
-    SellerVoucherSelectedProductList (voucherType string,id int) sellervoucherentity.SellerVoucherSelectedProductListResult
+    SellerVoucherSelectedProductList (voucherType string,id int64) sellervoucherentity.SellerVoucherSelectedProductListResult
     SellerVoucherUpdate (maxDiscountOfferingMoneyValue string,offeringPercentageDiscountOff int,id string,criteriaOverMoney string,voucherType string,apply string,collectStart int,displayArea string,periodEndTime int,voucherName string,voucherDiscountType string,offeringMoneyValueOff string,periodStartTime int,limit int,issued int) sellervoucherentity.SellerVoucherUpdateResult
     //Free Shipping
-    FreeShippingActivate (id int) freeshippingentity.FreeShippingActivateResult
-    FreeShippingAddSelectedProductSKU (id int,skuIds []int) freeshippingentity.FreeShippingAddSelectedProductSKUResult
+    FreeShippingActivate (id int64) freeshippingentity.FreeShippingActivateResult
+    FreeShippingAddSelectedProductSKU (id int64,skuIds []int64) freeshippingentity.FreeShippingAddSelectedProductSKUResult
     FreeShippingCreate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,deliveryOption string,tiers []freeshippingentity.FreeShippingCreateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingCreateResult
-    FreeShippingDeactivate (id int) freeshippingentity.FreeShippingDeactivateResult
-    FreeShippingDeleteSelectedProductSKU (id int,skuIds []int) freeshippingentity.FreeShippingDeleteSelectedProductSKUResult
+    FreeShippingDeactivate (id int64) freeshippingentity.FreeShippingDeactivateResult
+    FreeShippingDeleteSelectedProductSKU (id int64,skuIds []int64) freeshippingentity.FreeShippingDeleteSelectedProductSKUResult
     FreeShippingDeliveryOptionsQuery () freeshippingentity.FreeShippingDeliveryOptionsQueryResult
-    FreeShippingGet (id int) freeshippingentity.FreeShippingGetResult
+    FreeShippingGet (id int64) freeshippingentity.FreeShippingGetResult
     FreeShippingList (curPage int,name string,pageSize int,status string) freeshippingentity.FreeShippingListResult
     FreeShippingRegionsQuery () freeshippingentity.FreeShippingRegionsQueryResult
-    FreeShippingSelectedProductList (curPage int,pageSize int,id int) freeshippingentity.FreeShippingSelectedProductListResult
-    FreeShippingUpdate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,id int,deliveryOption string,tiers []freeshippingentity.FreeShippingUpdateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingUpdateResult
+    FreeShippingSelectedProductList (curPage int,pageSize int,id int64) freeshippingentity.FreeShippingSelectedProductListResult
+    FreeShippingUpdate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,id int64,deliveryOption string,tiers []freeshippingentity.FreeShippingUpdateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingUpdateResult
     //Media Center API
     CompleteCreateVideo (uploadId string,parts string,title string,coverUrl string) mediacenterentity.CompleteCreateVideoResult
-    GetVideo (videoId int) mediacenterentity.GetVideoResult
+    GetVideo (videoId int64) mediacenterentity.GetVideoResult
     GetVideoQuota () mediacenterentity.GetVideoQuotaResult
     InitCreateVideo (fileName string,fileBytes int) mediacenterentity.InitCreateVideoResult
-    RemoveVideo (videoId int) mediacenterentity.RemoveVideoResult
+    RemoveVideo (videoId int64) mediacenterentity.RemoveVideoResult
     UploadVideoBlock (uploadId string,blockNo string,blockCount string,file []byte) mediacenterentity.UploadVideoBlockResult
     //Product Review API
-    GetProductReviewList (itemId int,orderId int,startTime int,endTime int,contentFilter string,statusFilter string,pageSize int,current int) productreviewentity.GetProductReviewListResult
-    SubmitSellerReply (id int,content string) productreviewentity.SubmitSellerReplyResult
+    GetProductReviewList (itemId int64,orderId int64,startTime int,endTime int,contentFilter string,statusFilter string,pageSize int,current int) productreviewentity.GetProductReviewListResult
+    SubmitSellerReply (id int64,content string) productreviewentity.SubmitSellerReplyResult
     //FirstMile Bigbag（only for CN）
     GetLazadaBigbagPDFLable (userInfo firstmilebigbagentity.GetLazadaBigbagPDFLableUserInfoRequestEntity,client string,orderCode string,remark string,locale string,trackingNumber string) firstmilebigbagentity.GetLazadaBigbagPDFLableResult
     GetNewBagNumber () firstmilebigbagentity.GetNewBagNumberResult

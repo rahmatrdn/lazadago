@@ -30,7 +30,7 @@ func (s *MediaCenter) CompleteCreateVideo (uploadId string,parts string,title st
 //GetVideo
 //@Title You call this action to get video info after uploading.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=32&path=/media/video/get
-func (s *MediaCenter) GetVideo (videoId int) mediacenterentity.GetVideoResult {
+func (s *MediaCenter) GetVideo (videoId int64) mediacenterentity.GetVideoResult {
     method := "/media/video/get"
     params := lib.InRow{
       "videoId":videoId,
@@ -74,7 +74,7 @@ func (s *MediaCenter) InitCreateVideo (fileName string,fileBytes int) mediacente
 //RemoveVideo
 //@Title You can this api to delete a video file permanently.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=32&path=/media/video/remove
-func (s *MediaCenter) RemoveVideo (videoId int) mediacenterentity.RemoveVideoResult {
+func (s *MediaCenter) RemoveVideo (videoId int64) mediacenterentity.RemoveVideoResult {
     method := "/media/video/remove"
     params := lib.InRow{
       "videoId":videoId,

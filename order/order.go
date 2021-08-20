@@ -73,7 +73,7 @@ func (s *Order) GetFailureReasons () orderentity.GetFailureReasonsResult {
 //GetMultipleOrderItems
 //@Title Use this API to get the item information of one or more orders.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/orders/items/get
-func (s *Order) GetMultipleOrderItems (orderIds []int) orderentity.GetMultipleOrderItemsResult {
+func (s *Order) GetMultipleOrderItems (orderIds []int64) orderentity.GetMultipleOrderItemsResult {
     method := "/orders/items/get"
     params := lib.InRow{
       "order_ids":orderIds,
@@ -103,7 +103,7 @@ func (s *Order) GetOVOOrders (tradeOrderIds string) orderentity.GetOVOOrdersResu
 //GetOrder
 //@Title Use this API to get the list of items for a single order.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/order/get
-func (s *Order) GetOrder (orderId int) orderentity.GetOrderResult {
+func (s *Order) GetOrder (orderId int64) orderentity.GetOrderResult {
     method := "/order/get"
     params := lib.InRow{
       "order_id":orderId,
@@ -118,7 +118,7 @@ func (s *Order) GetOrder (orderId int) orderentity.GetOrderResult {
 //GetOrderItems
 //@Title Use this API to get the item information of an order.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/order/items/get
-func (s *Order) GetOrderItems (orderId int) orderentity.GetOrderItemsResult {
+func (s *Order) GetOrderItems (orderId int64) orderentity.GetOrderItemsResult {
     method := "/order/items/get"
     params := lib.InRow{
       "order_id":orderId,
@@ -130,6 +130,16 @@ func (s *Order) GetOrderItems (orderId int) orderentity.GetOrderItemsResult {
     }
     return result
 }
+
+//GetOrders
+//@Title Use this API to get the list of items for a range of orders1..
+//@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/orders/get
+func (s *Order) GetOrdersByUpdateTime (start,end int,offset int,limit int, status string) orderentity.GetOrdersResult {
+    updateBeforeStr:=lib.TimeToFormat(end,"2006-01-02T15:04:05+0800")
+    updateAfterStr:=lib.TimeToFormat(start,"2006-01-02T15:04:05+0800")
+    return s.GetOrders(updateBeforeStr,"",offset,limit,updateAfterStr,"","","",status)
+}
+
 //GetOrders
 //@Title Use this API to get the list of items for a range of orders1..
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/orders/get
@@ -174,7 +184,7 @@ func (s *Order) GetOrders (updateBefore string,sortDirection string,offset int,l
 //SetInvoiceNumber
 //@Title Use this API to set the invoice number for the specified order.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/order/invoice_number/set
-func (s *Order) SetInvoiceNumber (orderItemId int,invoiceNumber string) orderentity.SetInvoiceNumberResult {
+func (s *Order) SetInvoiceNumber (orderItemId int64,invoiceNumber string) orderentity.SetInvoiceNumberResult {
     method := "/order/invoice_number/set"
     params := lib.InRow{
       "order_item_id":orderItemId,
@@ -205,7 +215,7 @@ func (s *Order) SetRepack (packageId string) orderentity.SetRepackResult {
 //SetStatusToCanceled
 //@Title Use this API to cancel a single order item.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/order/cancel
-func (s *Order) SetStatusToCanceled (reasonDetail string,reasonId int,orderItemId int) orderentity.SetStatusToCanceledResult {
+func (s *Order) SetStatusToCanceled (reasonDetail string,reasonId int64,orderItemId int64) orderentity.SetStatusToCanceledResult {
     method := "/order/cancel"
     params := lib.InRow{
       "reason_id":reasonId,

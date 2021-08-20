@@ -12,7 +12,7 @@ type ProductReview struct{
 //GetProductReviewList
 //@Title get the review list for one seller
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=33&path=/review/seller/list
-func (s *ProductReview) GetProductReviewList (itemId int,orderId int,startTime int,endTime int,contentFilter string,statusFilter string,pageSize int,current int) productreviewentity.GetProductReviewListResult {
+func (s *ProductReview) GetProductReviewList (itemId int64,orderId int64,startTime int,endTime int,contentFilter string,statusFilter string,pageSize int,current int) productreviewentity.GetProductReviewListResult {
     method := "/review/seller/list"
     params := lib.InRow{
       "item_id":itemId,
@@ -48,7 +48,7 @@ func (s *ProductReview) GetProductReviewList (itemId int,orderId int,startTime i
 //SubmitSellerReply
 //@Title submit seller reply for customers review
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=33&path=/review/seller/reply/add
-func (s *ProductReview) SubmitSellerReply (id int,content string) productreviewentity.SubmitSellerReplyResult {
+func (s *ProductReview) SubmitSellerReply (id int64,content string) productreviewentity.SubmitSellerReplyResult {
     method := "/review/seller/reply/add"
     params := lib.InRow{
       "id":id,

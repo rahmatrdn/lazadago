@@ -13,7 +13,7 @@ type FreeShipping struct{
 //FreeShippingActivate
 //@Title activate free shipping promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/activate
-func (s *FreeShipping) FreeShippingActivate (id int) freeshippingentity.FreeShippingActivateResult {
+func (s *FreeShipping) FreeShippingActivate (id int64) freeshippingentity.FreeShippingActivateResult {
     method := "/promotion/freeshipping/activate"
     params := lib.InRow{
       "id":id,
@@ -28,7 +28,7 @@ func (s *FreeShipping) FreeShippingActivate (id int) freeshippingentity.FreeShip
 //FreeShippingAddSelectedProductSKU
 //@Title add sku for free shipping promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/product/sku/add
-func (s *FreeShipping) FreeShippingAddSelectedProductSKU (id int,skuIds []int) freeshippingentity.FreeShippingAddSelectedProductSKUResult {
+func (s *FreeShipping) FreeShippingAddSelectedProductSKU (id int64,skuIds []int64) freeshippingentity.FreeShippingAddSelectedProductSKUResult {
     method := "/promotion/freeshipping/product/sku/add"
     params := lib.InRow{
       "id":id,
@@ -87,7 +87,7 @@ func (s *FreeShipping) FreeShippingCreate (budgetType string,templateType string
 //FreeShippingDeactivate
 //@Title deactivate free shipping promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/deactivate
-func (s *FreeShipping) FreeShippingDeactivate (id int) freeshippingentity.FreeShippingDeactivateResult {
+func (s *FreeShipping) FreeShippingDeactivate (id int64) freeshippingentity.FreeShippingDeactivateResult {
     method := "/promotion/freeshipping/deactivate"
     params := lib.InRow{
       "id":id,
@@ -102,7 +102,7 @@ func (s *FreeShipping) FreeShippingDeactivate (id int) freeshippingentity.FreeSh
 //FreeShippingDeleteSelectedProductSKU
 //@Title delete sku for free shipping promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/product/sku/remove
-func (s *FreeShipping) FreeShippingDeleteSelectedProductSKU (id int,skuIds []int) freeshippingentity.FreeShippingDeleteSelectedProductSKUResult {
+func (s *FreeShipping) FreeShippingDeleteSelectedProductSKU (id int64,skuIds []int64) freeshippingentity.FreeShippingDeleteSelectedProductSKUResult {
     method := "/promotion/freeshipping/product/sku/remove"
     params := lib.InRow{
       "id":id,
@@ -131,7 +131,7 @@ func (s *FreeShipping) FreeShippingDeliveryOptionsQuery () freeshippingentity.Fr
 //FreeShippingGet
 //@Title get free shipping promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/get
-func (s *FreeShipping) FreeShippingGet (id int) freeshippingentity.FreeShippingGetResult {
+func (s *FreeShipping) FreeShippingGet (id int64) freeshippingentity.FreeShippingGetResult {
     method := "/promotion/freeshipping/get"
     params := lib.InRow{
       "id":id,
@@ -185,7 +185,7 @@ func (s *FreeShipping) FreeShippingRegionsQuery () freeshippingentity.FreeShippi
 //FreeShippingSelectedProductList
 //@Title query free shipping promotion selected product list
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/products/get
-func (s *FreeShipping) FreeShippingSelectedProductList (curPage int,pageSize int,id int) freeshippingentity.FreeShippingSelectedProductListResult {
+func (s *FreeShipping) FreeShippingSelectedProductList (curPage int,pageSize int,id int64) freeshippingentity.FreeShippingSelectedProductListResult {
     method := "/promotion/freeshipping/products/get"
     params := lib.InRow{
       "id":id,
@@ -206,7 +206,7 @@ func (s *FreeShipping) FreeShippingSelectedProductList (curPage int,pageSize int
 //FreeShippingUpdate
 //@Title update free shipping promotion
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=31&path=/promotion/freeshipping/update
-func (s *FreeShipping) FreeShippingUpdate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,id int,deliveryOption string,tiers []freeshippingentity.FreeShippingUpdateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingUpdateResult {
+func (s *FreeShipping) FreeShippingUpdate (budgetType string,templateType string,apply string,periodEndTime int,templateCode string,categoryName string,budgetValue string,promotionName string,periodType string,regionType string,periodStartTime int,platformChannel string,campaignTag string,regionValue []string,id int64,deliveryOption string,tiers []freeshippingentity.FreeShippingUpdateTiersRequestEntity,discountType string,dealCriteria string) freeshippingentity.FreeShippingUpdateResult {
     method := "/promotion/freeshipping/update"
     params := lib.InRow{
       "budget_type":budgetType,

@@ -111,7 +111,7 @@ func (s *Product) GetCategoryTree (languageCode string) productentity.GetCategor
 //GetProductItem
 //@Title Get single product by ItemId or SellerSku.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/product/item/get
-func (s *Product) GetProductItem (itemId int,sellerSku string) productentity.GetProductItemResult {
+func (s *Product) GetProductItem (itemId int64,sellerSku string) productentity.GetProductItemResult {
     method := "/product/item/get"
     params := lib.InRow{
     }
@@ -354,7 +354,7 @@ func (s *Product) UploadImage (image []byte) productentity.UploadImageResult {
 //RetailFulfilmentCreate
 //@Title fulfilment create
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/product/fulfillment/create
-func (s *Product) RetailFulfilmentCreate (platformName string,source string,sellerId int,platformSkuCode string,itemId int,skuId int,platformSkuName string,barcodeList []string,categoryId int,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentCreateFeaturesRequestEntity) productentity.RetailFulfilmentCreateResult {
+func (s *Product) RetailFulfilmentCreate (platformName string,source string,sellerId int64,platformSkuCode string,itemId int64,skuId int64,platformSkuName string,barcodeList []string,categoryId int64,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentCreateFeaturesRequestEntity) productentity.RetailFulfilmentCreateResult {
     method := "/product/fulfillment/create"
     params := lib.InRow{
       "platform_name":platformName,
@@ -409,7 +409,7 @@ func (s *Product) RetailFulfilmentCreate (platformName string,source string,sell
 //RetailFulfilmentUpdate
 //@Title fulfilment update
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/product/fulfillment/update
-func (s *Product) RetailFulfilmentUpdate (scItemId string,fulfillmentSkuName string,barcodeList []string,categoryId int,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentUpdateFeaturesRequestEntity,source string) productentity.RetailFulfilmentUpdateResult {
+func (s *Product) RetailFulfilmentUpdate (scItemId string,fulfillmentSkuName string,barcodeList []string,categoryId int64,brand string,brandName string,isShelfLifeMgt bool,lifeCycleDays int,rejectLifeCycleDays int,lockupLifeCycleDays int,adventLifeCycleDays int,isSnMgt bool,cpWeight int,cpLength int,cpWidth int,cpHeight int,skuPrice int,features productentity.RetailFulfilmentUpdateFeaturesRequestEntity,source string) productentity.RetailFulfilmentUpdateResult {
     method := "/product/fulfillment/update"
     params := lib.InRow{
       "sc_item_id":scItemId,

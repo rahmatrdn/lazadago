@@ -11,7 +11,7 @@ type GetOrderItemsFromBarCodeDataResponseEntity struct{
     OuterId	string	`json:"outer_id"`
     StrartTime	int	`json:"strart_time"`
     EndTime	int	`json:"end_time"`
-    TradeOrderId	int	`json:"trade_order_id"`
+    TradeOrderId	int64	`json:"trade_order_id"`
     SerialNum	string	`json:"serial_num"`
     ItemList	[]GetOrderItemsFromBarCodeItemListResponseEntity	`json:"item_list"`
 }

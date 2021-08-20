@@ -15,14 +15,14 @@ type GetOrderDataResponseEntity struct{
     BranchNumber	string	`json:"branch_number"`
     TaxCode	string	`json:"tax_code"`
     ExtraAttributes	string	`json:"extra_attributes"`
-    ShippingFee	string	`json:"shipping_fee"`
+    ShippingFee	float32	`json:"shipping_fee"`
     CustomerFirstName	string	`json:"customer_first_name"`
     PaymentMethod	string	`json:"payment_method"`
     Statuses	[]string	`json:"statuses"`
     Remarks	string	`json:"remarks"`
-    OrderNumber	int	`json:"order_number"`
-    OrderId	int	`json:"order_id"`
-    Voucher	string	`json:"voucher"`
+    OrderNumber	int64	`json:"order_number"`
+    OrderId	int64	`json:"order_id"`
+    Voucher	float32	`json:"voucher"`
     NationalRegistrationNumber	string	`json:"national_registration_number"`
     PromisedShippingTimes	string	`json:"promised_shipping_times"`
     ItemsCount	int	`json:"items_count"`
@@ -30,9 +30,9 @@ type GetOrderDataResponseEntity struct{
     Price	string	`json:"price"`
     AddressBilling	GetOrderAddressBillingResponseEntity	`json:"address_billing"`
     WarehouseCode	string	`json:"warehouse_code"`
-    ShippingFeeOriginal	string	`json:"shipping_fee_original"`
-    ShippingFeeDiscountSeller	string	`json:"shipping_fee_discount_seller"`
-    ShippingFeeDiscountPlatform	string	`json:"shipping_fee_discount_platform"`
+    ShippingFeeOriginal	float32	`json:"shipping_fee_original"`
+    ShippingFeeDiscountSeller	float32	`json:"shipping_fee_discount_seller"`
+    ShippingFeeDiscountPlatform	float32	`json:"shipping_fee_discount_platform"`
 }
 func (g GetOrderDataResponseEntity) String() string {
     return lib.ObjectToString(g)

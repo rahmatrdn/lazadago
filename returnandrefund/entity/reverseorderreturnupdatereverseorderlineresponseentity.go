@@ -13,9 +13,9 @@ type ReverseOrderReturnUpdateReverseOrderLineResponseEntity struct{
     ReasonDesc	string	`json:"reason_desc"`
     RefundAmount	int	`json:"refund_amount"`
     IsCancel	bool	`json:"is_cancel"`
-    OrderId	int	`json:"order_id"`
+    OrderId	int64	`json:"order_id"`
     SellerSku	string	`json:"seller_sku"`
-    PaidPrice	int	`json:"paid_price"`
+    PaidPrice	float32	`json:"paid_price"`
     ApplyReason	string	`json:"apply_reason"`
     OrderLineId	int	`json:"order_line_id"`
 }
