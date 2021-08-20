@@ -8,7 +8,7 @@ type RefreshAccessTokenResult struct{
     ExpiresIn	int	`json:"expires_in"`
     AccountId	string	`json:"account_id"`
     Country	string	`json:"country"`
-    CountryUserInfo	[]RefreshAccessTokenCountryUserInfoResponseEntity	`json:"country_user_info"`
+    CountryUserInfoList	[]RefreshAccessTokenCountryUserInfoResponseEntity	`json:"country_user_info_list"`
     AccountPlatform	string	`json:"account_platform"`
     AccessToken	string	`json:"access_token"`
     Account	string	`json:"account"`
