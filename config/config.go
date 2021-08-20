@@ -19,6 +19,7 @@ var baseURL map[string]string=map[string]string{
 	"id":"https://api.lazada.co.id/rest",
 	"my":"https://api.lazada.com.my/rest",
 	"vn":"https://api.lazada.vn/rest",
+	"token":"https://api.lazada.com/rest",
 	"all":"https://auth.lazada.com/oauth/authorize",
 }
 //Config
@@ -51,8 +52,10 @@ func (c *Config) GetCommonParam() lib.InRow {
 	param := lib.InRow{
 		"app_key": c.AppKey,
 		"timestamp":  ti,
-		"access_token":c.AccessToken,
 		"sign_method":"sha256",
+	}
+	if c.AccessToken!=""{
+		param["access_token"]=c.AccessToken
 	}
 	return param
 }
@@ -78,7 +81,16 @@ func (c *Config) Http(requestMethod, method string, data interface{}, out interf
 	inputParam:=data.(lib.InRow)
 	allParam:=lib.MergeInRow(param,inputParam)
 	allParam["sign"]=Sign(c.AppSecret,method,allParam)
-	fullURL := fmt.Sprintf("%s?%s", c.GetApiUrl(""), method)
+	apiUrl:=""
+	if method=="/auth/token/refresh"||
+	method=="/auth/token/create"||
+	method=="/datamoat/compute_risk"||
+	method=="/datamoat/login"{
+		apiUrl=c.GetApiUrl("token")
+	}else{
+		apiUrl=c.GetApiUrl("")
+	}
+	fullURL := fmt.Sprintf("%s%s", apiUrl, method)
 	ihttp := httpclient.New().WithTimeOut(120)
 	var result *httpclient.HttpResponse
 	if requestMethod == "GET" {
