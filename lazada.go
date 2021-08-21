@@ -66,6 +66,7 @@ type Lazadar interface {
     SetStatusToSOFDelivered (orderItemIds string) orderentity.SetStatusToSOFDeliveredResult     
     SetStatusToSOFFailedDelivery (orderItemIds string) orderentity.SetStatusToSOFFailedDeliveryResult
 	//product
+    GetProductsByUpdateTime (start,end int,filter string,offset int,limit int) productentity.GetProductsResult
     CreateProduct (payload string) productentity.CreateProductResult
     DeactivateProduct (apiRequestBody string) productentity.DeactivateProductResult
     GetBrandByPages (startRow string,pageSize string,languageCode string) productentity.GetBrandByPagesResult

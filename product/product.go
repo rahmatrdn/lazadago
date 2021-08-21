@@ -4,6 +4,7 @@ import(
 	"github.com/wjpxxx/letgo/lib"
 	lazadaConfig "github.com/wjpxxx/lazadago/config"
 	productentity "github.com/wjpxxx/lazadago/product/entity"
+    "fmt"
 )
 //Product
 type Product struct{
@@ -127,6 +128,14 @@ func (s *Product) GetProductItem (itemId int64,sellerSku string) productentity.G
         result.Code = err.Error()
     }
     return result
+}
+//GetProducts
+//@Title Use this API to get detailed information of the specified products.
+//@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/products/get
+func (s *Product) GetProductsByUpdateTime (start,end int,filter string,offset int,limit int) productentity.GetProductsResult {
+    updateBeforeStr:=lib.TimeToFormat(end,"2006-01-02T15:04:05+0800")
+    updateAfterStr:=lib.TimeToFormat(start,"2006-01-02T15:04:05+0800")
+    return s.GetProducts(filter,updateBeforeStr,"",fmt.Sprintf("%d",offset) ,"",updateAfterStr,fmt.Sprintf("%d",limit),"","")
 }
 //GetProducts
 //@Title Use this API to get detailed information of the specified products.
