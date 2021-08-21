@@ -5,7 +5,7 @@ import (
 )
 
 type GetInventoryChangedSKUSkuListResponseEntity struct{
-    FulfillmentSkuId	string	`json:"fulfillment_sku_id"`
+    FulfillmentSkuId	int64	`json:"fulfillment_sku_id"`
     OperateLogCount	int	`json:"operate_log_count"`
 }
 func (g GetInventoryChangedSKUSkuListResponseEntity) String() string {

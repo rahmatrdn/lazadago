@@ -5,7 +5,7 @@ import (
 )
 
 type GetOrderItemsFromBarCodeItemListResponseEntity struct{
-    ItemId	string	`json:"item_id"`
+    ItemId	int64	`json:"item_id"`
     ItemName	string	`json:"item_name"`
     ItemImg	string	`json:"item_img"`
     UnitFee	string	`json:"unit_fee"`

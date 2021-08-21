@@ -6,13 +6,13 @@ import (
 
 type GetProductItemDataResponseEntity struct{
     Variation	GetProductItemVariationResponseEntity	`json:"variation"`
-    PrimaryCategory	int	`json:"primary_category"`
+    PrimaryCategory	int64	`json:"primary_category"`
     Attributes	GetProductItemAttributesResponseEntity	`json:"attributes"`
     Skus	[]GetProductItemSkusResponseEntity	`json:"skus"`
-    ItemId	int	`json:"item_id"`
+    ItemId	int64	`json:"item_id"`
     CreatedTime	string	`json:"created_time"`
     UpdatedTime	string	`json:"updated_time"`
-    Images	string	`json:"images"`
+    Images	[]string	`json:"images"`
 }
 func (g GetProductItemDataResponseEntity) String() string {
     return lib.ObjectToString(g)
@@ -24,6 +24,9 @@ type GetProductItemAttributesResponseEntity struct{
     Description string `json:"description"`
     WarrantyType string `json:"warranty_type"`
     Brand string `json:"brand"`
+    Warranty string `json:"warranty"`
+    Hazmat string `json:"Hazmat"`
+    Source string `json:"source"`
 }
 
 func (g GetProductItemAttributesResponseEntity) String() string {
@@ -59,6 +62,10 @@ func (g GetProductItemSkusResponseEntity) String() string {
 type MultiWarehouseInventories struct{
     WarehouseCode string `json:"warehouseCode"`
     Quantity int `json:"quantity"`
+    OccupyQuantity int `json:"occupyQuantity"`
+    TotalQuantity int `json:"totalQuantity"`
+    WithholdQuantity int `json:"withholdQuantity"`
+    SellableQuantity int `json:"sellableQuantity"`
 }
 func (g MultiWarehouseInventories) String() string {
     return lib.ObjectToString(g)

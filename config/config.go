@@ -80,7 +80,7 @@ func (c *Config) Http(requestMethod, method string, data interface{}, out interf
 	param := c.GetCommonParam()
 	inputParam:=data.(lib.InRow)
 	allParam:=lib.MergeInRow(param,inputParam)
-	allParam["sign"]=Sign(c.AppSecret,method,allParam)
+	param["sign"]=Sign(c.AppSecret,method,allParam)
 	apiUrl:=""
 	if method=="/auth/token/refresh"||
 	method=="/auth/token/create"||
@@ -90,13 +90,14 @@ func (c *Config) Http(requestMethod, method string, data interface{}, out interf
 	}else{
 		apiUrl=c.GetApiUrl("")
 	}
-	fullURL := fmt.Sprintf("%s%s", apiUrl, method)
+	fullURL := fmt.Sprintf("%s%s?%s", apiUrl, method,httpclient.HttpBuildQuery(param))
+	
 	ihttp := httpclient.New().WithTimeOut(120)
 	var result *httpclient.HttpResponse
 	if requestMethod == "GET" {
-		result = ihttp.Get(fullURL, allParam)
+		result = ihttp.Get(fullURL, inputParam)
 	} else {
-		result = ihttp.Post(fullURL, allParam)
+		result = ihttp.Post(fullURL, inputParam)
 	}
 	//fmt.Println(result.Dump)
 	if result.Err != "" {

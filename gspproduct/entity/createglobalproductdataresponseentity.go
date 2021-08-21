@@ -5,7 +5,7 @@ import (
 )
 
 type CreateGlobalProductDataResponseEntity struct{
-    ItemId	int	`json:"item_id"`
+    ItemId	int64	`json:"item_id"`
     SkuList	[]CreateGlobalProductSkuListResponseEntity	`json:"sku_list"`
 }
 func (g CreateGlobalProductDataResponseEntity) String() string {

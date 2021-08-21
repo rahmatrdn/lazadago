@@ -45,6 +45,12 @@ func (s *Product) DeactivateProduct (apiRequestBody string) productentity.Deacti
 //GetBrandByPages
 //@Title Use this API to retrieve all product brands by page index in the system.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/category/brands/query
+func (s *Product) GetBrandByPagesInt (startRow int,pageSize int,languageCode string) productentity.GetBrandByPagesResult {
+    return s.GetBrandByPages(fmt.Sprintf("%d",startRow),fmt.Sprintf("%d",pageSize),languageCode)
+}
+//GetBrandByPages
+//@Title Use this API to retrieve all product brands by page index in the system.
+//@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/category/brands/query
 func (s *Product) GetBrandByPages (startRow string,pageSize string,languageCode string) productentity.GetBrandByPagesResult {
     method := "/category/brands/query"
     params := lib.InRow{
@@ -58,6 +64,12 @@ func (s *Product) GetBrandByPages (startRow string,pageSize string,languageCode 
         result.Code = err.Error()
     }
     return result
+}
+//GetCategoryAttributes
+//@Title Use this API to get a list of attributes for a specified product category.
+//@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/category/attributes/get
+func (s *Product) GetCategoryAttributesInt64 (primaryCategoryId int64,languageCode string) productentity.GetCategoryAttributesResult {
+    return s.GetCategoryAttributes(fmt.Sprintf("%d",primaryCategoryId),languageCode)
 }
 //GetCategoryAttributes
 //@Title Use this API to get a list of attributes for a specified product category.
@@ -352,6 +364,21 @@ func (s *Product) UploadImage (image []byte) productentity.UploadImageResult {
     method := "/image/upload"
     params := lib.InRow{
       "@image":image,
+    }
+    result := productentity.UploadImageResult{}
+    err := s.Config.HttpPost(method, params, &result)
+    if err != nil {
+        result.Code = err.Error()
+    }
+    return result
+}
+//UploadImage
+//@Title Use this API to upload a single image file to Lazada site. Allowed image formats are JPG and PNG. The maximum size of an image file is 1MB.
+//@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=5&path=/image/upload
+func (s *Product) UploadImageByPath (imagePath string) productentity.UploadImageResult {
+    method := "/image/upload"
+    params := lib.InRow{
+      "@image":imagePath,
     }
     result := productentity.UploadImageResult{}
     err := s.Config.HttpPost(method, params, &result)

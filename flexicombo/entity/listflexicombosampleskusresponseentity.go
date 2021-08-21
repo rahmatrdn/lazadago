@@ -5,8 +5,8 @@ import (
 )
 
 type ListFlexiComboSampleSkusResponseEntity struct{
-    ProductId	int	`json:"product_id"`
-    SkuId	int	`json:"sku_id"`
+    ProductId	int64	`json:"product_id"`
+    SkuId	int64	`json:"sku_id"`
 }
 func (g ListFlexiComboSampleSkusResponseEntity) String() string {
     return lib.ObjectToString(g)

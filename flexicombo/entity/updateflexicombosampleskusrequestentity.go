@@ -5,8 +5,8 @@ import (
 )
 
 type UpdateFlexiComboSampleSkusRequestEntity struct{
-    ProductId	int	`json:"productId"`
-    SkuId	int	`json:"skuId"`
+    ProductId	int64	`json:"productId"`
+    SkuId	int64	`json:"skuId"`
 }
 func (g UpdateFlexiComboSampleSkusRequestEntity) String() string {
     return lib.ObjectToString(g)

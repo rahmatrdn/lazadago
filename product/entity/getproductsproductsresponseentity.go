@@ -5,13 +5,13 @@ import (
 )
 
 type GetProductsProductsResponseEntity struct{
-    PrimaryCategory	int	`json:"primary_category"`
+    PrimaryCategory	int64	`json:"primary_category"`
     Attributes	GetProductsAttributesResponseEntity	`json:"attributes"`
     Skus	[]GetProductsSkusResponseEntity	`json:"skus"`
-    ItemId	int	`json:"item_id"`
+    ItemId	int64	`json:"item_id"`
     CreatedTime	string	`json:"created_time"`
     UpdatedTime	string	`json:"updated_time"`
-    Images	string	`json:"images"`
+    Images	[]string	`json:"images"`
 }
 func (g GetProductsProductsResponseEntity) String() string {
     return lib.ObjectToString(g)
@@ -23,6 +23,9 @@ type GetProductsAttributesResponseEntity struct{
     Description string `json:"description"`
     WarrantyType string `json:"warranty_type"`
     Brand string `json:"brand"`
+    Warranty string `json:"warranty"`
+    Hazmat string `json:"Hazmat"`
+    Source string `json:"source"`
 }
 func (g GetProductsAttributesResponseEntity) String() string {
     return lib.ObjectToString(g)
@@ -47,7 +50,23 @@ type GetProductsSkusResponseEntity struct{
     PackageWeight string `json:"package_weight"`
     Available int `json:"Available"`
     SpecialoDate string `json:"special_to_date"`
+    MultiWarehouseInventories []MultiWarehouseInventoriesEntity `json:"multiWarehouseInventories"`
+    FblWarehouseInventories []MultiWarehouseInventoriesEntity `json:"fblWarehouseInventories"`
+    ChannelInventories []MultiWarehouseInventoriesEntity `json:"channelInventories"`
 }
 func (g GetProductsSkusResponseEntity) String() string {
+    return lib.ObjectToString(g)
+}
+//MultiWarehouseInventoriesEntity
+type MultiWarehouseInventoriesEntity struct{
+    OccupyQuantity int `json:"occupyQuantity"`
+    Quantity int `json:"quantity"`
+    TotalQuantity int `json:"totalQuantity"`
+    WithholdQuantity int `json:"withholdQuantity"`
+    WarehouseCode string `json:"warehouseCode"`
+    SellableQuantity int `json:"sellableQuantity"`
+}
+
+func (g MultiWarehouseInventoriesEntity) String() string {
     return lib.ObjectToString(g)
 }

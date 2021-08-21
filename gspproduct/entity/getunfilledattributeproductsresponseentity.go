@@ -5,8 +5,8 @@ import (
 )
 
 type GetUnfilledAttributeProductsResponseEntity struct{
-    ItemId	int	`json:"item_id"`
-    PrimaryCategory	int	`json:"primary_category"`
+    ItemId	int64	`json:"item_id"`
+    PrimaryCategory	int64	`json:"primary_category"`
     SellerSku	string	`json:"seller_sku"`
     Attributes	[]GetUnfilledAttributeAttributesResponseEntity	`json:"attributes"`
 }

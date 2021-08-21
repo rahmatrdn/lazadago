@@ -5,7 +5,7 @@ import (
 )
 
 type CreateProductDataResponseEntity struct{
-    ItemId	int	`json:"item_id"`
+    ItemId	int64	`json:"item_id"`
     SkuList	[]CreateProductSkuListResponseEntity	`json:"sku_list"`
     Variation1	CreateProductVariation1ResponseEntity	`json:"Variation1"`
     Variation2	CreateProductVariation2ResponseEntity	`json:"Variation2"`
