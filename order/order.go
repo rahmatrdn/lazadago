@@ -4,6 +4,8 @@ import(
 	"github.com/wjpxxx/letgo/lib"
 	lazadaConfig "github.com/wjpxxx/lazadago/config"
 	orderentity "github.com/wjpxxx/lazadago/order/entity"
+    "fmt"
+    "strings"
 )
 //Order
 type Order struct{
@@ -74,9 +76,13 @@ func (s *Order) GetFailureReasons () orderentity.GetFailureReasonsResult {
 //@Title Use this API to get the item information of one or more orders.
 //@Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.bd786bbeNJUDaJ#/api?cid=8&path=/orders/items/get
 func (s *Order) GetMultipleOrderItems (orderIds []int64) orderentity.GetMultipleOrderItemsResult {
+    var ids []string
+    for _,v:=range orderIds{
+        ids=append(ids, fmt.Sprintf("%d", v))
+    }
     method := "/orders/items/get"
     params := lib.InRow{
-      "order_ids":orderIds,
+      "order_ids":"["+strings.Join(ids,",")+"]",
     }
     result := orderentity.GetMultipleOrderItemsResult{}
     err := s.Config.HttpGet(method, params, &result)
