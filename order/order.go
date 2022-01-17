@@ -4,7 +4,6 @@ import(
 	"github.com/wjpxxx/letgo/lib"
 	lazadaConfig "github.com/wjpxxx/lazadago/config"
 	orderentity "github.com/wjpxxx/lazadago/order/entity"
-    "fmt"
     "strings"
 )
 //Order
