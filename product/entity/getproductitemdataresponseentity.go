@@ -29,8 +29,6 @@ type GetProductItemAttributesResponseEntity struct{
     Source string `json:"source"`
     Model string `json:"model"`
     ColorFamily string `json:"color_family"`
-    Description string `json:"description"`
-    Source string `json:"source"`
 }
 
 func (g GetProductItemAttributesResponseEntity) String() string {
