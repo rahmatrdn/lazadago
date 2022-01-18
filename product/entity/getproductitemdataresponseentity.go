@@ -27,6 +27,10 @@ type GetProductItemAttributesResponseEntity struct{
     Warranty string `json:"warranty"`
     Hazmat string `json:"Hazmat"`
     Source string `json:"source"`
+    Model string `json:"model"`
+    ColorFamily string `json:"color_family"`
+    Description string `json:"description"`
+    Source string `json:"source"`
 }
 
 func (g GetProductItemAttributesResponseEntity) String() string {
