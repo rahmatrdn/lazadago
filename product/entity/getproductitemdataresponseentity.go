@@ -54,6 +54,8 @@ type GetProductItemSkusResponseEntity struct{
     PackageWeight string `json:"package_weight"`
     Available int `json:"Available"`
     SpecialoDate string `json:"special_to_date"`
+    ColorFamily string `json:"color_family"`
+    Size string `json:"size"`
     MultiWarehouseInventories []MultiWarehouseInventories `json:"multiWarehouseInventories"`
 }
 
