@@ -56,6 +56,10 @@ type GetProductItemSkusResponseEntity struct{
     SpecialoDate string `json:"special_to_date"`
     ColorFamily string `json:"color_family"`
     Size string `json:"size"`
+    ColorThumbnail string `json:"color_thumbnail"`
+    ColorText string `json:"color_text"`
+    SpecialTimeFormat string `json:"special_time_format"`
+    PackageContent string `json:"package_content"`
     MultiWarehouseInventories []MultiWarehouseInventories `json:"multiWarehouseInventories"`
 }
 
