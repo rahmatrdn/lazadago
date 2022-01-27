@@ -47,7 +47,7 @@ func (c *Config)SetAccessToken(accessToken string){
 }
 
 //GetCommonParam
-func (c *Config) GetCommonParam() lib.InRow {
+func (c *Config) GetCommonParam(method string) lib.InRow {
 	ti := lib.TimeLong()
 	param := lib.InRow{
 		"app_key": c.AppKey,
@@ -55,7 +55,9 @@ func (c *Config) GetCommonParam() lib.InRow {
 		"sign_method":"sha256",
 	}
 	if c.AccessToken!=""{
-		param["access_token"]=c.AccessToken
+		if method!="/auth/token/refresh" {
+			param["access_token"]=c.AccessToken
+		}
 	}
 	return param
 }
@@ -77,7 +79,7 @@ func (c *Config) HttpPostFile(method string, data interface{}, out interface{}) 
 
 //Http 请求
 func (c *Config) Http(requestMethod, method string, data interface{}, out interface{}) error {
-	param := c.GetCommonParam()
+	param := c.GetCommonParam(method)
 	inputParam:=data.(lib.InRow)
 	allParam:=lib.MergeInRow(param,inputParam)
 	param["sign"]=Sign(c.AppSecret,method,allParam)
