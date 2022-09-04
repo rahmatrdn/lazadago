@@ -2,8 +2,6 @@
 
 API interface for lazada go language version
 
-my email :474790700@qq.com
-
 ## Contents
 
 - [lazada go language API](#lazada-go)

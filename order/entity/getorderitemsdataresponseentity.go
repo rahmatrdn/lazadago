@@ -61,7 +61,7 @@ type GetOrderItemsDataResponseEntity struct {
 	ShopSku                     string  `json:"shop_sku"`
 	ReasonDetail                string  `json:"reason_detail"`
 	PurchaseOrderId             string  `json:"purchase_order_id"`
-	ProductId                   string  `json:"product_id"`
+	ProductId                   int64  `json:"product_id"`
 }
 
 func (g GetOrderItemsDataResponseEntity) String() string {
