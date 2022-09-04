@@ -17,14 +17,14 @@ To install lazadago package, you need to install Go and set your Go workspace fi
 1. The first need [Go](https://golang.org/) installed (**version 1.12+ is required**), then you can use the below Go command to install lazadago.
 
 ```sh
-$ go get -u github.com/wjpxxx/lazadago
+$ go get -u github.com/rahmatrdn/lazadago
 ```
 
 2. Import it in your code:
 
 ```go
 import (
-	"github.com/wjpxxx/lazadago"
+	"github.com/rahmatrdn/lazadago"
 )
 ```
 ## Quick start
@@ -35,9 +35,9 @@ import (
 package main
 
 import (
-	"github.com/wjpxxx/lazadago"
-	lazadaConfig "github.com/wjpxxx/lazadago/config"
-	lazadaConfig "github.com/wjpxxx/lazadago/config"
+	"github.com/rahmatrdn/lazadago"
+	lazadaConfig "github.com/rahmatrdn/lazadago/config"
+	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	"fmt"
 )
 

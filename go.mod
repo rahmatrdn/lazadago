@@ -1,4 +1,4 @@
-module github.com/wjpxxx/lazadago
+module github.com/rahmatrdn/lazadago
 
 go 1.12
 
