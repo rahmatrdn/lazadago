@@ -1,6 +1,6 @@
 # lazada go language API
 
-API interface for lazada go language version
+Golang API Wrapper for Lazada ERP System
 
 ## Contents
 
@@ -40,24 +40,24 @@ import (
 )
 
 func main() {
-	api:=lazadago.NewApi(&lazadaConfig.Config{
+	api := lazadago.NewApi(&lazadaConfig.Config{
 		AppKey:"your app key",
 		AccessToken:"your Access Token", //刚开始可以为空字符串
 		AppSecret:"your app Secret",
 		Country:"ph",
 	})
-	//first Seller authorization introduction
+	// first Seller authorization introduction
 	fmt.Println(api.AuthorizationURL("redirect_uri"))
-	//generate access_token for call api
-	rs:=api.GenerateAccessToken("code","")
+	// generate access_token for call api
+	rs := api.GenerateAccessToken("code","")
 	fmt.Println(rs)
-	//set access token
+	// set access token
 	api.SetAccessToken("your Access Token")
 
-	//Use this API to get the list of items for a single order.
+	// Use this API to get the list of items for a single order.
 	order:=api.GetOrder("order_id")
 	fmt.Println(order)
-	//Use this API to get the list of items for a range of orders1
+	// Use this API to get the list of items for a range of orders1
 	orders:=api.GetOrders("2018-02-10T16:00:00+08:00","DESC",0,10,"2017-02-10T09:00:00+08:00","updated_at","","","shipped")
 	fmt.Println(orders)
 }
