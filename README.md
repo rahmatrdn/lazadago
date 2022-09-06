@@ -1,4 +1,4 @@
-# lazada go language API
+# Lazada Go
 
 Golang API Wrapper for Lazada ERP System
 
