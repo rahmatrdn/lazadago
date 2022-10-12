@@ -63,7 +63,7 @@ type GetProductItemSkusResponseEntity struct {
 	ColorText                 string                      `json:"color_text"`
 	SpecialTimeFormat         string                      `json:"special_time_format"`
 	PackageContent            string                      `json:"package_content"`
-	SaleProp                  map[string]string           `json:saleProp,omitempty`
+	SaleProp                  map[string]string           `json:"sale_prop,omitempty"`
 	MultiWarehouseInventories []MultiWarehouseInventories `json:"multiWarehouseInventories"`
 }
 
