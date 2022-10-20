@@ -88,6 +88,7 @@ type Lazadar interface {
 	RemoveSku(payload string) productentity.RemoveSkuResult
 	SetImages(payload string) productentity.SetImagesResult
 	UpdatePriceQuantity(payload string) productentity.UpdatePriceQuantityResult
+	UpdatePriceSellableQuantity(payload string) productentity.UpdatePriceQuantityResult
 	UpdateProduct(payload string) productentity.UpdateProductResult
 	UploadImage(image []byte) productentity.UploadImageResult
 	RetailFulfilmentCreate(platformName string, source string, sellerId int64, platformSkuCode string, itemId int64, skuId int64, platformSkuName string, barcodeList []string, categoryId int64, brand string, brandName string, isShelfLifeMgt bool, lifeCycleDays int, rejectLifeCycleDays int, lockupLifeCycleDays int, adventLifeCycleDays int, isSnMgt bool, cpWeight int, cpLength int, cpWidth int, cpHeight int, skuPrice int, features productentity.RetailFulfilmentCreateFeaturesRequestEntity) productentity.RetailFulfilmentCreateResult

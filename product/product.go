@@ -362,6 +362,19 @@ func (s *Product) UpdatePriceQuantity(payload string) productentity.UpdatePriceQ
 	return result
 }
 
+func (s *Product) UpdatePriceSellableQuantity(payload string) productentity.UpdatePriceQuantityResult {
+	method := "/product/stock/sellable/update"
+	params := lib.InRow{
+		"payload": payload,
+	}
+	result := productentity.UpdatePriceQuantityResult{}
+	err := s.Config.HttpPost(method, params, &result)
+	if err != nil {
+		result.Code = err.Error()
+	}
+	return result
+}
+
 // UpdateProduct
 // @Title Use this API to update attributes or SKUs of an existing product.
 // The iteration 25/6/2020 Updated for DBS changes. Refer to Input Parameters Payload
