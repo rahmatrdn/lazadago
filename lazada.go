@@ -142,7 +142,7 @@ type Lazadar interface {
 	GetReverseOrderReasonList(reverseOrderLineId int64) returnandrefundentity.GetReverseOrderReasonListResult
 	GetReverseOrdersForSeller(ofcStatusList []string, reverseOrderId int64, tradeOrderId int64, pageSize int, reverseStatusList []string, pageNo int, returnToType string, disputeInProgress bool) returnandrefundentity.GetReverseOrdersForSellerResult
 	InitReverseOrderCancel(orderItemIdList []string, orderId int64, reasonId string) returnandrefundentity.InitReverseOrderCancelResult
-	ReverseOrderCancelValidate(orderId string, orderItemIdList []string) returnandrefundentity.ReverseOrderCancelValidateResult
+	ReverseOrderCancelValidate(orderId string, orderItemIdList string) returnandrefundentity.ReverseOrderCancelValidateResult
 	ReverseOrderReturnUpdate(action string, reverseOrderId int64, reverseOrderItemIds []int64, reasonId int64, comment string, imageInfo []returnandrefundentity.ReverseOrderReturnUpdateImageInfoRequestEntity) returnandrefundentity.ReverseOrderReturnUpdateResult
 	//FlexiCombo
 	ActivateFlexiCombo(id int64) flexicomboentity.ActivateFlexiComboResult

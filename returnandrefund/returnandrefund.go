@@ -112,7 +112,7 @@ func (s *ReturnAndRefund) InitReverseOrderCancel(orderItemIdList []string, order
 // ReverseOrderCancelValidate
 // @Title Seller can check whether the order can be canceled through this API and get corresponding reasons if not.
 // @Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=26&path=/order/reverse/cancel/validate
-func (s *ReturnAndRefund) ReverseOrderCancelValidate(orderId string, orderItemIdList []string) returnandrefundentity.ReverseOrderCancelValidateResult {
+func (s *ReturnAndRefund) ReverseOrderCancelValidate(orderId string, orderItemIdList string) returnandrefundentity.ReverseOrderCancelValidateResult {
 	method := "/order/reverse/cancel/validate"
 	params := lib.InRow{
 		"order_id":           orderId,
