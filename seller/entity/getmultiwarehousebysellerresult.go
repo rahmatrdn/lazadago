@@ -1,18 +1,18 @@
 package entity
 
 import (
-    "github.com/wjpxxx/letgo/lib"
+	"github.com/wjpxxx/letgo/lib"
 )
 
-type GetMultiWarehouseBySellerResult struct{
-    Result	GetMultiWarehouseBySellerResultResponseEntity	`json:"result"`
-    Type	string	`json:"type"`
-    Code	string	`json:"code"`
-    Message	string	`json:"message"`
-    RequestId	string	`json:"request_id"`
-    Detail	[]GetMultiWarehouseBySellerDetailResponseEntity	`json:"detail"`
+type GetMultiWarehouseBySellerResult struct {
+	Result    GetMultiWarehouseBySellerResultResponseEntity `json:"result"`
+	Type      string                                        `json:"type"`
+	RequestId string                                        `json:"request_id"`
+	Code      string                                        `json:"code"`
 }
+
 func (g GetMultiWarehouseBySellerResult) String() string {
-    return lib.ObjectToString(g)
+	return lib.ObjectToString(g)
 }
+
 type GetMultiWarehouseBySellerDetailResponseEntity struct{}

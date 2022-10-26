@@ -15,10 +15,8 @@ type Seller struct {
 // @Title Provide seller multi warehouse address data of the specific seller, like warehouse code and warehouse name and etc.
 // @Description https://open.lazada.com/doc/api.htm?spm=a2o9m.11193531.0.0.78de6bbeqtnjmQ#/api?cid=2&path=/seller/warehouse/get
 func (s *Seller) GetMultiWarehouseBySeller(addressTypes string) sellerentity.GetMultiWarehouseBySellerResult {
-	method := "/seller/warehouse/get"
-	params := lib.InRow{
-		"addressTypes": addressTypes,
-	}
+	method := "/rc/warehouse/detail/get"
+	params := lib.InRow{}
 	result := sellerentity.GetMultiWarehouseBySellerResult{}
 	err := s.Config.HttpGet(method, params, &result)
 	if err != nil {
