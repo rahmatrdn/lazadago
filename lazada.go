@@ -101,7 +101,7 @@ type Lazadar interface {
 	GetOrderTrace(sellerId string, orderId string, locale string, ofcPackageIdList []string) logisticsentity.GetOrderTraceResult
 	GetShipmentProviders() logisticsentity.GetShipmentProvidersResult
 	//Seller
-	GetMultiWarehouseBySeller(addressTypes []string) sellerentity.GetMultiWarehouseBySellerResult
+	GetMultiWarehouseBySeller(addressTypes string) sellerentity.GetMultiWarehouseBySellerResult
 	GetSeller() sellerentity.GetSellerResult
 	GetSellerMetricsById() sellerentity.GetSellerMetricsByIdResult
 	GetSellerPerformance(language string) sellerentity.GetSellerPerformanceResult
