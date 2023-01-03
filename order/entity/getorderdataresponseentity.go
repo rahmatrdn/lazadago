@@ -27,7 +27,7 @@ type GetOrderDataResponseEntity struct {
 	PromisedShippingTimes       string                                `json:"promised_shipping_times"`
 	ItemsCount                  int                                   `json:"items_count"`
 	CreatedAt                   string                                `json:"created_at"`
-	Price                       float64                               `json:"price"`
+	Price                       string                                `json:"price"`
 	AddressBilling              GetOrderAddressBillingResponseEntity  `json:"address_billing"`
 	WarehouseCode               string                                `json:"warehouse_code"`
 	ShippingFeeOriginal         float32                               `json:"shipping_fee_original"`
