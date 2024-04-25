@@ -3,7 +3,7 @@ package logistics
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	logisticsentity "github.com/rahmatrdn/lazadago/logistics/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // Logistics

@@ -2,7 +2,7 @@ package config
 
 import(
 	"testing"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 	"fmt"
 )
 func TestConfig(t *testing.T){

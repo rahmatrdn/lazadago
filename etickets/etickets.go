@@ -3,7 +3,7 @@ package etickets
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	eticketsentity "github.com/rahmatrdn/lazadago/etickets/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // ETickets

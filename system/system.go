@@ -3,7 +3,7 @@ package system
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	systementity "github.com/rahmatrdn/lazadago/system/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // System

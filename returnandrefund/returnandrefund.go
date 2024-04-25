@@ -3,7 +3,7 @@ package returnandrefund
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	returnandrefundentity "github.com/rahmatrdn/lazadago/returnandrefund/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // ReturnAndRefund

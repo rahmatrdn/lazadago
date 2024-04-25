@@ -3,7 +3,7 @@ package gspproduct
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	gspproductentity "github.com/rahmatrdn/lazadago/gspproduct/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // GspProduct

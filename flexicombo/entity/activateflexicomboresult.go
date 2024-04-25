@@ -1,7 +1,7 @@
 package entity
 
 import (
-    "github.com/wjpxxx/letgo/lib"
+    "github.com/alfarady/letgo/lib"
 )
 
 type ActivateFlexiComboResult struct{

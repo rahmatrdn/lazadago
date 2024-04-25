@@ -3,7 +3,7 @@ package productreview
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	productreviewentity "github.com/rahmatrdn/lazadago/productreview/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // ProductReview

@@ -3,7 +3,7 @@ package sellervoucher
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	sellervoucherentity "github.com/rahmatrdn/lazadago/sellervoucher/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // SellerVoucher

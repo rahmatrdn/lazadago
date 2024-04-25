@@ -5,7 +5,7 @@ import (
 
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	productentity "github.com/rahmatrdn/lazadago/product/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // Product

@@ -3,7 +3,7 @@ package flexicombo
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	flexicomboentity "github.com/rahmatrdn/lazadago/flexicombo/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // FlexiCombo

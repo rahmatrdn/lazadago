@@ -3,7 +3,7 @@ package datamoat
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	datamoatentity "github.com/rahmatrdn/lazadago/datamoat/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/alfarady/letgo/lib"
 )
 
 // DataMoat
