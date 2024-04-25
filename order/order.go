@@ -5,7 +5,7 @@ import (
 
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	orderentity "github.com/rahmatrdn/lazadago/order/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // Order

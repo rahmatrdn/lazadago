@@ -3,7 +3,7 @@ package finance
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	financeentity "github.com/rahmatrdn/lazadago/finance/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // Finance

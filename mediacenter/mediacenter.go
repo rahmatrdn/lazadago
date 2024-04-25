@@ -3,7 +3,7 @@ package mediacenter
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	mediacenterentity "github.com/rahmatrdn/lazadago/mediacenter/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // MediaCenter

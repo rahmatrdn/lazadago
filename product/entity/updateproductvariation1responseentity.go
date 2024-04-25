@@ -1,7 +1,7 @@
 package entity
 
 import (
-    "github.com/wjpxxx/letgo/lib"
+    "github.com/wjp-letgo/letgo/lib"
 )
 
 type UpdateProductVariation1ResponseEntity struct{

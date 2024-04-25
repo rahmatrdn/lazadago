@@ -3,7 +3,7 @@ package firstmilebigbag
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	firstmilebigbagentity "github.com/rahmatrdn/lazadago/firstmilebigbag/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // FirstMileBigbag

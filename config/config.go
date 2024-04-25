@@ -6,9 +6,9 @@ import (
 	"strings"
 	"sort"
 
-	"github.com/wjpxxx/letgo/encry"
-	"github.com/wjpxxx/letgo/httpclient"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/encry"
+	"github.com/wjp-letgo/letgo/httpclient"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 //baseURL

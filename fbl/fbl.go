@@ -3,7 +3,7 @@ package fbl
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	fblentity "github.com/rahmatrdn/lazadago/fbl/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // Fbl

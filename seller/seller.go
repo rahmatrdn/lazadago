@@ -3,7 +3,7 @@ package seller
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	sellerentity "github.com/rahmatrdn/lazadago/seller/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // Seller

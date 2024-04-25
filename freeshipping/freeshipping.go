@@ -3,7 +3,7 @@ package freeshipping
 import (
 	lazadaConfig "github.com/rahmatrdn/lazadago/config"
 	freeshippingentity "github.com/rahmatrdn/lazadago/freeshipping/entity"
-	"github.com/wjpxxx/letgo/lib"
+	"github.com/wjp-letgo/letgo/lib"
 )
 
 // FreeShipping
